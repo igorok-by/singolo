@@ -21,6 +21,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 yarn.lock
+csscomb.json
+.editorconfig
 
 # Special
 Thumbs.db
