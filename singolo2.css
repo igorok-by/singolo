@@ -1,1 +1,75 @@
 @import "singolo1.css";
+
+
+/* General */
+
+.wrapper-block {
+  display: block;
+}
+
+.section {
+  padding-top: 66px;
+}
+
+.section-dark {
+  background-color: #2d303a;
+}
+
+.section-title {
+  padding-bottom: 30px;
+
+  font-weight: 900;
+  font-size: 30px;
+  color: #666d89;
+}
+
+.section-descr {
+  font-weight: 300;
+}
+
+
+/* Buttons */
+
+.btn-wrap {
+  display: flex;
+  padding-top: 15px;
+  padding-bottom: 19px;
+}
+
+.btn {
+  padding: 5px 6px 4px;
+  font-size: 12px;
+  color: #666d89;
+  border: 1px solid #666d89;
+  border-radius: 3px;
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.btn:not(:last-child) {
+  margin-right: 10px;
+}
+
+.btn:hover {
+  color: #dedede;
+  border: 1px solid #c5c5c5;
+}
+
+.btn-active {
+  color: #dedede;
+  border: 1px solid #c5c5c5;
+}
+
+
+/* Grid of images */
+
+.grid-images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.grid-img:nth-child(n+13) {
+  display: none;
+}
