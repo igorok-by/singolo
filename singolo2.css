@@ -9,10 +9,12 @@
 
 .section {
   padding-top: 66px;
+  padding-bottom: 66px;
 }
 
 .section-dark {
   background-color: #2d303a;
+  border-bottom: 6px solid #323746;
 }
 
 .section-title {
