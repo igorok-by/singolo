@@ -40,6 +40,8 @@
 /* Buttons */
 
 .btn-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   padding-top: 10px;
   padding-bottom: 19px;
@@ -52,6 +54,8 @@
   color: #666d89;
   border: 1px solid #666d89;
   border-radius: 3px;
+  -webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  -o-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
   transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
@@ -73,11 +77,34 @@
 /* Grid of images */
 
 .grid-images {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 20px 1fr 20px 1fr 20px 1fr;
   grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: auto;
   grid-template-rows: auto;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
+}
+
+.grid-images>*:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+
+.grid-images>*:nth-child(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+}
+
+.grid-images>*:nth-child(3) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+}
+
+.grid-images>*:nth-child(4) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 7;
 }
 
 .grid-img:nth-child(n+13) {
@@ -88,12 +115,30 @@
 /* Grid of persons */
 
 .grid-persons {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 20px 1fr 20px 1fr;
   grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: auto;
   grid-template-rows: auto;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   padding-top: 45px;
+}
+
+.grid-persons>*:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+
+.grid-persons>*:nth-child(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+}
+
+.grid-persons>*:nth-child(3) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
 }
 
 .person p {
@@ -120,24 +165,35 @@
   font-weight: 900;
   white-space: nowrap;
   overflow: hidden;
+  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   letter-spacing: -0.1px;
   margin-left: -1px;
 }
 
 .social-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   padding-top: 24px;
 }
 
 .social {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   width: 32px;
   height: 32px;
   border: 1px solid #666d89;
   border-radius: 50%;
+  -webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  -o-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
   transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
