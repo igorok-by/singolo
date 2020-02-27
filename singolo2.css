@@ -24,10 +24,11 @@
 
 .section-title {
   padding-bottom: 19px;
-  letter-spacing: -0.2px;
+
   font-weight: 900;
   font-size: 30px;
   color: #666d89;
+  letter-spacing: -0.2px;
 }
 
 .section-descr {
@@ -50,13 +51,16 @@
 
 .btn {
   padding: 4px 6px 3px;
+
   font-size: 12px;
   color: #666d89;
+
   border: 1px solid #666d89;
   border-radius: 3px;
+
   -webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
-  -o-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
-  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+       -o-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+          transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .btn:not(:last-child) {
@@ -65,11 +69,13 @@
 
 .btn:hover {
   color: #dedede;
+
   border: 1px solid #c5c5c5;
 }
 
 .btn-active {
   color: #dedede;
+
   border: 1px solid #c5c5c5;
 }
 
@@ -78,33 +84,34 @@
 
 .grid-images {
   display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 20px 1fr 20px 1fr 20px 1fr;
-  grid-template-columns: repeat(4, 1fr);
-  -ms-grid-rows: auto;
-  grid-template-rows: auto;
+  display:     grid;
+
   grid-column-gap: 20px;
+  -ms-grid-columns: 1fr 20px 1fr 20px 1fr 20px 1fr;
   grid-row-gap: 20px;
+  -ms-grid-rows: auto;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
 }
 
-.grid-images>*:nth-child(1) {
-  -ms-grid-row: 1;
+.grid-images > *:nth-child(1) {
   -ms-grid-column: 1;
+  -ms-grid-row: 1;
 }
 
-.grid-images>*:nth-child(2) {
-  -ms-grid-row: 1;
+.grid-images > *:nth-child(2) {
   -ms-grid-column: 3;
+  -ms-grid-row: 1;
 }
 
-.grid-images>*:nth-child(3) {
-  -ms-grid-row: 1;
+.grid-images > *:nth-child(3) {
   -ms-grid-column: 5;
+  -ms-grid-row: 1;
 }
 
-.grid-images>*:nth-child(4) {
-  -ms-grid-row: 1;
+.grid-images > *:nth-child(4) {
   -ms-grid-column: 7;
+  -ms-grid-row: 1;
 }
 
 .grid-img:nth-child(n+13) {
@@ -116,29 +123,30 @@
 
 .grid-persons {
   display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 20px 1fr 20px 1fr;
-  grid-template-columns: repeat(3, 1fr);
-  -ms-grid-rows: auto;
-  grid-template-rows: auto;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
+  display:     grid;
   padding-top: 45px;
+
+  grid-column-gap: 20px;
+  -ms-grid-columns: 1fr 20px 1fr 20px 1fr;
+  grid-row-gap: 20px;
+  -ms-grid-rows: auto;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
 }
 
-.grid-persons>*:nth-child(1) {
-  -ms-grid-row: 1;
+.grid-persons > *:nth-child(1) {
   -ms-grid-column: 1;
+  -ms-grid-row: 1;
 }
 
-.grid-persons>*:nth-child(2) {
-  -ms-grid-row: 1;
+.grid-persons > *:nth-child(2) {
   -ms-grid-column: 3;
+  -ms-grid-row: 1;
 }
 
-.grid-persons>*:nth-child(3) {
-  -ms-grid-row: 1;
+.grid-persons > *:nth-child(3) {
   -ms-grid-column: 5;
+  -ms-grid-row: 1;
 }
 
 .person p {
@@ -157,18 +165,19 @@
 
 .person-name {
   max-width: 300px;
+  margin-left: -1px;
   padding-top: 14px;
   padding-bottom: 10px;
+  overflow: hidden;
+
+  font-weight: 900;
+  font-size: 18px;
   line-height: 1;
   color: #666d89;
-  font-size: 18px;
-  font-weight: 900;
-  white-space: nowrap;
-  overflow: hidden;
-  -o-text-overflow: ellipsis;
-  text-overflow: ellipsis;
   letter-spacing: -0.1px;
-  margin-left: -1px;
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
 }
 
 .social-wrap {
@@ -182,24 +191,27 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 32px;
   height: 32px;
+
   border: 1px solid #666d89;
   border-radius: 50%;
+
   -webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
-  -o-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
-  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+       -o-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+          transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .social svg {
   width: 14px;
   height: 14px;
+
   fill: #666d89;
 }
 
