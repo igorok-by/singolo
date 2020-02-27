@@ -8,8 +8,8 @@
 }
 
 .section {
-  padding-top: 66px;
-  padding-bottom: 66px;
+  padding-top: 61px;
+  padding-bottom: 67px;
 }
 
 .section-dark {
@@ -23,8 +23,8 @@
 }
 
 .section-title {
-  padding-bottom: 30px;
-
+  padding-bottom: 19px;
+  letter-spacing: -0.2px;
   font-weight: 900;
   font-size: 30px;
   color: #666d89;
@@ -33,6 +33,7 @@
 .section-descr {
   font-weight: 300;
   line-height: 30px;
+  text-align: justify;
 }
 
 
@@ -40,12 +41,13 @@
 
 .btn-wrap {
   display: flex;
-  padding-top: 15px;
+  padding-top: 10px;
   padding-bottom: 19px;
+  padding-left: 1px;
 }
 
 .btn {
-  padding: 5px 6px 4px;
+  padding: 4px 6px 3px;
   font-size: 12px;
   color: #666d89;
   border: 1px solid #666d89;
@@ -91,18 +93,27 @@
   grid-template-rows: auto;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  padding-top: 49px;
+  padding-top: 45px;
 }
 
 .person p {
   font-size: 12px;
   line-height: 21.56px;
+  text-align: justify;
+}
+
+.person p span {
+  letter-spacing: 0;
+}
+
+.text-lt-small {
+  letter-spacing: -0.1px;
 }
 
 .person-name {
   max-width: 300px;
-  padding-top: 15px;
-  padding-bottom: 18px;
+  padding-top: 14px;
+  padding-bottom: 10px;
   line-height: 1;
   color: #666d89;
   font-size: 18px;
@@ -110,11 +121,13 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  letter-spacing: -0.1px;
+  margin-left: -1px;
 }
 
 .social-wrap {
   display: flex;
-  padding-top: 25px;
+  padding-top: 24px;
 }
 
 .social {
