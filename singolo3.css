@@ -1,11 +1,85 @@
 @import "singolo2.css";
 
+
+/* General */
+
 .section-warning {
-background-color: #f06c64;
+  background-color: #f06c64;
   border-bottom: 6px solid #ea676b;
 }
 
 .section-title-light,
 .section-descr-light {
   color: #f0d8d9;
+}
+
+.wrapper-pt40 {
+  padding-top: 40px;
+}
+
+
+/* Form */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  max-width: 65.85%;
+}
+
+.input,
+.textarea {
+  flex-basis: 100%;
+  padding: 13px 15px;
+  font-size: 12px;
+  font-family: inherit;
+  background-color: #d6564f;
+  border: none;
+  border-radius: 3px;
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #f48c8f;
+}
+
+.input:focus,
+.input:active,
+.textarea:focus,
+.textarea:active {
+  background-color: #f0d8d9;
+  outline: none;
+}
+
+.input {
+  margin-bottom: 16px;
+}
+
+.textarea {
+  min-height: 202px;
+}
+
+.btn-submit {
+  align-self: flex-end;
+  width: 120px;
+  margin-top: 16px;
+  padding: 13px 15px;
+  color: #f0d8d9;
+  background-color: #d6564f;
+  border: 1px solid #f0d8d9;
+  border-radius: 3px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  cursor: pointer;
+}
+
+.btn-submit:hover,
+.btn-submit:focus,
+.btn-submit:active {
+  background-color: #f0d8d9;
+  border: 1px solid #d6564f;
+  color: #d6564f;
+  outline: none;
 }
