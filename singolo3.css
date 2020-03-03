@@ -14,6 +14,7 @@
 }
 
 .wrapper-pt40 {
+  align-items: flex-start;
   padding-top: 40px;
 }
 
@@ -58,6 +59,7 @@
 
 .textarea {
   min-height: 202px;
+  resize: none;
 }
 
 .btn-submit {
@@ -82,4 +84,52 @@
   border: 1px solid #d6564f;
   color: #d6564f;
   outline: none;
+}
+
+
+/* Contact */
+
+.contact {
+  flex-basis: 32%;
+  color: #f0d8d9;
+}
+
+.contact-title {
+  padding-bottom: 10px;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.contact-descr {
+  padding-bottom: 15px;
+  font-size: 12px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  color: #f0d8d9;
+  font-size: 12px;
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.contact-item:hover,
+.contact-item:focus,
+.contact-item:active {
+  color: #d6564f;
+}
+
+.contact-item svg {
+  width: 11px;
+  height: 11px;
+  margin-right: 7px;
+
+  fill: #f0d8d9;
+}
+
+.contact-item:hover svg,
+.contact-item:focus svg,
+.contact-item:active svg {
+  fill: #d6564f;
 }
