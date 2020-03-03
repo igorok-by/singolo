@@ -117,7 +117,7 @@
 .contact-item:hover,
 .contact-item:focus,
 .contact-item:active {
-  color: #d6564f;
+  color: #666d89;
 }
 
 .contact-item svg {
@@ -131,5 +131,22 @@
 .contact-item:hover svg,
 .contact-item:focus svg,
 .contact-item:active svg {
-  fill: #d6564f;
+  fill: #666d89;
+}
+
+
+/* Footer */
+
+.footer {
+  padding-top: 22px;
+  padding-bottom: 22px;
+  background-color: #2d303a;
+}
+
+.footer-copyright {
+  font-size: 12px;
+}
+
+.social-wrap-p0 {
+  padding: 0;
 }
