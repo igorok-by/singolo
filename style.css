@@ -29,7 +29,7 @@ a:hover {
 }
 
 .section {
-  padding-top: 61px;
+  padding-top: 60px;
   padding-bottom: 67px;
 }
 
@@ -142,7 +142,7 @@ a:hover {
 }
 
 .logo h1 {
-  letter-spacing: -0.6px;
+  letter-spacing: -0.5px;
 }
 
 .logo span {
@@ -216,7 +216,7 @@ a:hover {
   align-items: center;
   width: 46px;
   height: 46px;
-  margin-left: -15px;
+  margin-left: -13px;
 
   border-radius: 50%;
 
@@ -256,12 +256,16 @@ a:hover {
 
 .slider-img {
   position: relative;
+  left: -0.5px;
 
   width: 240px;
   height: 483px;
 }
 
 .slider-img.rotated {
+  left: -1.5px;
+  top: -0.5px;
+
   width: 483px;
   height: 240px;
 }
@@ -345,7 +349,7 @@ a:hover {
 }
 
 .row:not(:last-child) {
-  padding-bottom: 35.8px;
+  padding-bottom: 36px;
 }
 
 .services-item {
@@ -380,6 +384,7 @@ a:hover {
   height: 59px;
   margin-top: 1px;
   margin-right: 20px;
+  margin-left: 1px;
 
   border: 2px solid #666d89;
   border-radius: 50%;
@@ -397,6 +402,7 @@ a:hover {
   font-weight: 900;
   line-height: 1;
   color: #666d89;
+  letter-spacing: -0.1px;
 }
 
 .services-descr p {
@@ -412,7 +418,7 @@ a:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding-top: 10px;
+  padding-top: 11px;
   padding-bottom: 19px;
   padding-left: 1px;
 }
@@ -424,7 +430,7 @@ a:hover {
   color: #666d89;
 
   border: 1px solid #666d89;
-  border-radius: 3px;
+  border-radius: 5px;
 
   -webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
   -o-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -552,7 +558,7 @@ a:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding-top: 24px;
+  padding-top: 25px;
 }
 
 .social {
@@ -800,7 +806,16 @@ a:hover {
   padding-left: 2px;
 
   font-size: 12px;
+  color: #494e62;
   letter-spacing: -0.2px;
+}
+
+.footer-copyright .splitter {
+  display: inline-block;
+  position: relative;
+  bottom: 3px;
+  margin-left: 1px;
+  margin-right: 1px;
 }
 
 .social-wrap-p0 {
