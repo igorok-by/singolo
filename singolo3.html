@@ -48,28 +48,30 @@
         <h2 class="section-title section-title-light">Get a Quote</h2>
         <p class="section-descr section-descr-light">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
       </div>
-      <div class="wrapper wrapper-pt40">
+      <div class="wrapper wrapper-pt44">
         <form action="/" class="form">
-          <input class="input" type="text" placeholder="Name (Required)" required>
-          <input class="input" type="email" placeholder="Email (Required)" required>
-          <input class="input" type="text" placeholder="Subject">
-          <textarea class="textarea" placeholder="Describe your project in detail..."></textarea>
-          <button class="btn-submit" type="submit">Submit</button>
+          <input class="input" type="text" name="name" placeholder="Name (Required)" required>
+          <input class="input" type="email" name="email" placeholder="Email (Required)" required>
+          <input class="input" type="text" name="subject" placeholder="Subject">
+          <textarea class="textarea" name="details" placeholder="Describe your project in detail..."></textarea>
+          <button class="btn-submit" type="submit" name="submit">Submit</button>
         </form>
         <aside class="contact">
           <h4 class="contact-title">Contact Information</h4>
-          <p class="contact-descr">Quisque hendrerit purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis,et consequat felis.</p>
+          <p class="contact-descr">Quisque hendrerit purus dapibus, ornare nibh vitae, viver- ra nibh. Fusce vitae
+            aliquam tellus. Proin sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet <span>turpis, et consequat felis.</span></p>
 
           <a class="contact-item" href="#">
             <svg><use xlink:href="#icon-map"></use></svg>
             <span>Elm St. 14/05 Lost City</span>
           </a>
           <a class="contact-item" href="tel:035283318635">
-            <svg><use xlink:href="#icon-phone"></use></svg>
+            <svg class="icon-phone"><use xlink:href="#icon-phone"></use>
+            </svg>
             <span>03528 331 86 35</span>
           </a>
           <a class="contact-item" href="mailto:info@singolo.com">
-            <svg><use xlink:href="#icon-mail"></use></svg>
+            <svg class="icon-mail"><use xlink:href="#icon-mail"></use></svg>
             <span>info@singolo.com</span>
           </a>
         </aside>
