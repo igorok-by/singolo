@@ -385,6 +385,12 @@ a:hover {
   border-radius: 50%;
 }
 
+.services-icon svg {
+  width: 32px;
+  height: 32px;
+  fill: #666d89;
+}
+
 .services-descr h4 {
   padding-bottom: 9.5px;
 
