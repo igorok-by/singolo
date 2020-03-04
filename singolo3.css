@@ -19,6 +19,8 @@
 }
 
 .wrapper-pt44 {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
   padding-top: 44px;
 }
@@ -27,14 +29,21 @@
 /* Form */
 
 .form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -ms-flex-preferred-size: 100%;
   flex-basis: 100%;
   max-width: 65.85%;
 }
 
 .input,
 .textarea {
+  -ms-flex-preferred-size: 100%;
   flex-basis: 100%;
   padding: 11.5px 15px 12.5px 15px;
   font-size: 12px;
@@ -42,7 +51,29 @@
   background-color: #d6564f;
   border: none;
   border-radius: 6px;
+  -webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  -o-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
   transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.input::-webkit-input-placeholder,
+.textarea::-webkit-input-placeholder {
+  color: #f48c8f;
+}
+
+.input::-moz-placeholder,
+.textarea::-moz-placeholder {
+  color: #f48c8f;
+}
+
+.input:-ms-input-placeholder,
+.textarea:-ms-input-placeholder {
+  color: #f48c8f;
+}
+
+.input::-ms-input-placeholder,
+.textarea::-ms-input-placeholder {
+  color: #f48c8f;
 }
 
 .input::placeholder,
@@ -70,6 +101,7 @@
 }
 
 .btn-submit {
+  -ms-flex-item-align: end;
   align-self: flex-end;
   width: 120px;
   margin-top: 16px;
@@ -80,6 +112,8 @@
   border-radius: 6px;
   font-size: 14px;
   font-family: inherit;
+  -webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  -o-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
   transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
   cursor: pointer;
 }
@@ -97,6 +131,7 @@
 /* Contact */
 
 .contact {
+  -ms-flex-preferred-size: 31.95%;
   flex-basis: 31.95%;
   margin-top: -1px;
   color: #f0d8d9;
@@ -122,12 +157,18 @@
 }
 
 .contact-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-left: 1px;
   padding-bottom: 8px;
   color: #f0d8d9;
   font-size: 12px;
+  -webkit-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  -o-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
   transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
