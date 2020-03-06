@@ -46,6 +46,7 @@ a:hover {
 
 .section-warning {
   padding-top: 60px;
+  padding-bottom: 6px;
 
   background-color: #f06c64;
   border-bottom: 6px solid #ea676b;
