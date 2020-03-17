@@ -31,3 +31,35 @@ const markNavLink = () => {
     markClickedElement(navLinks, clickedNavLink, 'link--active');
   });
 };
+
+// Portfolio: Mark image in grid when clicked
+const gridOfImages = document.querySelector('#gridOfImages');
+const imagesInGrid = gridOfImages.querySelectorAll('.grid__img');
+const markImgInGrid = () => {
+  gridOfImages.addEventListener('click', (event) => {
+    if (event.target.classList.contains('grid__img')) {
+      let clickedImg = event.target;
+      markClickedElement(imagesInGrid, clickedImg, 'grid__img--active');
+    };
+  });
+};
+
+// Portfolio: Mark filter link when clicked
+// const wrapFilterBtns = document.querySelector('#filterBtns');
+// const btnsTag = wrapFilterBtns.querySelectorAll('.btn-tag');
+
+// const addTagsClickHandler = () => {
+//   wrapFilterBtns.addEventListener('click', (event) => {
+//     event.preventDefault();
+//     if (event.target.classList.contains('btn-tag')) {
+//       let clickedTag = event.target;
+//       markClickedElement(btnsTag, clickedTag, 'btn-tag--active');
+
+
+//     };
+//   });
+// };
+
+// const showAllImages = () => {
+
+// };
