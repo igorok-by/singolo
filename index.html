@@ -10,26 +10,26 @@
 </head>
 
 <body>
-  <header class="header">
+  <header class="header" id="header">
     <div class="wrapper">
       <a class="logo" href="#">
         <h1>Singolo</h1><span>*</span>
       </a>
       <nav class="header__right">
-        <a class="link active" href="#">Home</a>
-        <div class="splitter"></div>
-        <a class="link" href="#">Services</a>
-        <div class="splitter"></div>
-        <a class="link" href="#">Portfolio</a>
-        <div class="splitter"></div>
-        <a class="link" href="#">About</a>
-        <div class="splitter"></div>
-        <a class="link" href="#">Contact</a>
+        <a class="link link--active" href="#main">Home</a>
+        <!-- <div class="splitter"></div> -->
+        <a class="link" href="#services">Services</a>
+        <!-- <div class="splitter"></div> -->
+        <a class="link" href="#portfolio">Portfolio</a>
+        <!-- <div class="splitter"></div> -->
+        <a class="link" href="#about">About</a>
+        <!-- <div class="splitter"></div> -->
+        <a class="link" href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- Section: Slider -->
     <section class="slider">
       <div class="wrapper">
@@ -55,7 +55,7 @@
     </section><!-- end Section: Slider -->
 
     <!-- Section: Services -->
-    <section class="services">
+    <section class="services" id="services">
       <div class="wrapper">
         <h2>Our Services</h2>
         <p class="services__text">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia <span>odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</span></p>
@@ -123,41 +123,39 @@
     </section><!-- end Section: Services -->
 
     <!-- Section: Portfolio -->
-    <section class="section section--dark">
+    <section class="section section--dark" id="portfolio">
       <div class="wrapper wrapper--block">
         <h2 class="section__title">Portfolio</h2>
         <p class="section__descr">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
 
-        <div class="btn__wrap">
-          <a class="btn btn--active" href="#">All</a>
-          <a class="btn" href="#">Web Design</a>
-          <a class="btn" href="#">Graphic Design</a>
-          <a class="btn" href="#">Artwork</a>
+        <div class="btn-wrap" id="filterBtns">
+          <a class="btn-tag" href="#">All</a>
+          <a class="btn-tag" href="#">Web Design</a>
+          <a class="btn-tag" href="#">Graphic Design</a>
+          <a class="btn-tag" href="#">Artwork</a>
         </div>
       </div>
       <div class="wrapper">
-        <div class="grid-images">
+        <div class="grid-images" id="gridOfImages">
           <img class="grid__img" src="assets/img/portfolio-1.png" width="220" height="187" alt="image">
           <img class="grid__img" src="assets/img/portfolio-2.png" width="220" height="187" alt="image">
           <img class="grid__img" src="assets/img/portfolio-3.png" width="220" height="187" alt="image">
           <img class="grid__img" src="assets/img/portfolio-4.png" width="220" height="187" alt="image">
           <img class="grid__img" src="assets/img/portfolio-5.png" width="220" height="187" alt="image">
           <img class="grid__img" src="assets/img/portfolio-6.png" width="220" height="187" alt="image">
-          <img class="grid__img" src="assets/img/portfolio-7.png" width="220" height="187" alt="image">
+          <img class="grid__img " src="assets/img/portfolio-7.png" width="220" height="187" alt="image">
           <img class="grid__img" src="assets/img/portfolio-8.png" width="220" height="187" alt="image">
           <img class="grid__img" src="assets/img/portfolio-9.png" width="220" height="187" alt="image">
           <img class="grid__img" src="assets/img/portfolio-10.png" width="220" height="187" alt="image">
           <img class="grid__img" src="assets/img/portfolio-11.png" width="220" height="187" alt="image">
-          <img class="grid__img" src="assets/img/portfolio-12.png" width="220" height="187" alt="image">
-          <img class="grid__img" src="assets/img/portfolio-1.png" width="220" height="187" alt="image">
-          <img class="grid__img" src="assets/img/portfolio-2.png" width="220" height="187" alt="image">
-          <img class="grid__img" src="assets/img/portfolio-3.png" width="220" height="187" alt="image">
+          <img class="grid__img" src="assets/img/portfolio-12.png" width="220" height="187"
+            alt="image">
         </div>
       </div>
     </section><!-- end Section: Portfolio -->
 
     <!-- Section: About Us -->
-    <section class="section section--light">
+    <section class="section section--light" id="about">
       <div class="wrapper wrapper--block">
         <h2 class="section__title">About Us</h2>
         <p class="section__descr">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
@@ -229,7 +227,7 @@
     </section><!-- end Section: About Us -->
 
     <!-- Section: Portfolio -->
-    <section class="section section--warning">
+    <section class="section section--warning" id="contact">
       <div class="wrapper wrapper--block">
         <h2 class="section__title section__title--light">Get a Quote</h2>
         <p class="section__descr section__descr--light">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
