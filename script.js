@@ -1,9 +1,94 @@
-window.onload = () => {
-  markNavLink();
-  markImgInGrid();
-  addTagsClickHandler();
-}
+class Modal {
+  constructor(classes) {
+    this.classes = classes;
+    this.modal = '';
+    this.modalContent = '';
+    this.modalCloseBtn = '';
+    this.overlay = '';
+  };
 
+  buildModal(content) {
+    //Overlay
+    this.overlay = this.createDomNode(this.overlay, 'div', 'overlay', 'overlay_modal');
+
+    //Modal
+    this.modal = this.createDomNode(this.modal, 'div', 'modal', this.classes);
+
+    //Modal content
+    this.modalContent = this.createDomNode(this.modalContent, 'div', 'modal__content');
+
+    //Close Button
+    this.modalCloseBtn = this.createDomNode(this.modalCloseBtn, 'button', 'modal__close');
+    this.modalCloseBtn.setAttribute('type', 'button');
+    this.modalCloseBtn.innerText = 'OK';
+
+    // this.modalCloseBtn.innerHTML = 'hello';
+
+    this.setContent(content);
+
+    this.appendModalElements();
+
+    // Bind Events
+    this.bindEvents();
+
+    // Open Modal
+    this.openModal();
+  };
+
+  createDomNode(node, element, ...classes) {
+    node = document.createElement(element);
+    node.classList.add(...classes);
+    return node;
+  };
+
+  setContent(content) {
+    if (typeof content === 'string') {
+      this.modalContent.innerHTML = content;
+    } else {
+      this.modalContent.innerHTML = '';
+      this.modalContent.appendChild(content);
+    };
+  };
+
+  appendModalElements() {
+    this.modal.append(this.modalContent);
+    this.modal.append(this.modalCloseBtn);
+    this.overlay.append(this.modal);
+  };
+
+  bindEvents() {
+    this.overlay.addEventListener('click', this.closeModal);
+    this.modalCloseBtn.addEventListener('click', this.closeModal);
+  };
+
+  openModal() {
+    document.body.append(this.overlay);
+  };
+
+  closeModal(event) {
+    let classes = event.target.classList;
+
+    if (classes.contains('overlay') || classes.contains('modal__close')) {
+      document.querySelector('.overlay').remove();
+    };
+  };
+};
+
+
+window.onload = () => {
+
+  // Mark link when clicked
+  markNavLink();
+
+  // Mark image when clicked
+  markImgInGrid();
+
+  // Mark tag-button when clicked and shuffle images
+  addTagsClickHandler();
+
+  // Generate Base Modal from Modal Class
+  addFormSubmitHandler();
+}
 
 // Handler for marking elements
 const markClickedElement = (elements, elem, classForMark) => {
@@ -80,4 +165,45 @@ const shuffleSomeArray = (someArray) => { // https://stackoverflow.com/questions
   }
 
   return someArray;
+};
+
+// Modal from form when submitted
+const contactForm = document.querySelector('#contactForm');
+const addFormSubmitHandler = () => {
+  contactForm.querySelector('[type=submit]').addEventListener('click', (event) => {
+
+    let emailOfLetter = contactForm.querySelector('[name=email]').value;
+    let nameOfLetter = contactForm.querySelector('[name=name]').value;
+    let subjectOfLetter = contactForm.querySelector('[name=subject]').value;
+    let detailsOfLetter = contactForm.querySelector('[name=details]').value;
+
+    if (emailOfLetter && nameOfLetter) {
+      event.preventDefault();
+      let submittedContent = '<h2 class="modal__title">The letter was sent</h2>';
+
+      if (subjectOfLetter) {
+        submittedContent += `<p class="modal__text">Subject: ${subjectOfLetter}</p>`;
+      } else {
+        submittedContent += '<p class="modal__text">No subject</p>';
+      };
+      if (detailsOfLetter) {
+        submittedContent += `<p class="modal__text">Description: ${detailsOfLetter}</p>`;
+      } else {
+        submittedContent += '<p class="modal__text">No description</p>';
+      };
+
+      generateModalFromSubmit(submittedContent);
+      document.querySelector('.modal__close').addEventListener('click', () => contactForm.reset());
+      document.querySelector('.overlay').addEventListener('click', () => contactForm.reset());
+    };
+  });
+};
+
+const generateModalFromSubmit = (submittedContent) => {
+  renderModalWindow(submittedContent);
+};
+
+const renderModalWindow = (content) => {
+  let modal = new Modal('modal');
+  modal.buildModal(content);
 };
