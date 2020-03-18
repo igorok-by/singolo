@@ -45,21 +45,39 @@ const markImgInGrid = () => {
 };
 
 // Portfolio: Mark filter link when clicked
-// const wrapFilterBtns = document.querySelector('#filterBtns');
-// const btnsTag = wrapFilterBtns.querySelectorAll('.btn-tag');
+const wrapFilterBtns = document.querySelector('#filterBtns');
+const tagBtns = wrapFilterBtns.querySelectorAll('.btn-tag');
 
-// const addTagsClickHandler = () => {
-//   wrapFilterBtns.addEventListener('click', (event) => {
-//     event.preventDefault();
-//     if (event.target.classList.contains('btn-tag')) {
-//       let clickedTag = event.target;
-//       markClickedElement(btnsTag, clickedTag, 'btn-tag--active');
+const addTagsClickHandler = () => {
+  wrapFilterBtns.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (event.target.classList.contains('btn-tag')) {
+      let clickedTag = event.target;
+      markClickedElement(tagBtns, clickedTag, 'btn-tag--active');
 
+      let arrayOfImages = shuffleSomeArray(imagesInGrid);
+      gridOfImages.append(...arrayOfImages);
+    };
+  });
+};
 
-//     };
-//   });
-// };
+const shuffleSomeArray = (someArray) => { // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+  someArray = [...someArray];
+  let currentIndex = someArray.length,
+    temporaryValue, randomIndex;
 
-// const showAllImages = () => {
+  // While there remain elements to shuffle...
+  while (currentIndex !== 0) {
 
-// };
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    temporaryValue = someArray[currentIndex];
+    someArray[currentIndex] = someArray[randomIndex];
+    someArray[randomIndex] = temporaryValue;
+  }
+
+  return someArray;
+};
