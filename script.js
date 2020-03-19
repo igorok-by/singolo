@@ -88,7 +88,52 @@ window.onload = () => {
 
   // Generate Base Modal from Modal Class
   addFormSubmitHandler();
-}
+
+  // Slider activation
+  addSliderHandler();
+};
+
+
+// Modal from form when submitted
+const contactForm = document.querySelector('#contactForm');
+const addFormSubmitHandler = () => {
+  contactForm.querySelector('[type=submit]').addEventListener('click', (event) => {
+
+    let emailOfLetter = contactForm.querySelector('[name=email]').value;
+    let nameOfLetter = contactForm.querySelector('[name=name]').value;
+    let subjectOfLetter = contactForm.querySelector('[name=subject]').value;
+    let detailsOfLetter = contactForm.querySelector('[name=details]').value;
+
+    if (emailOfLetter && nameOfLetter) {
+      event.preventDefault();
+      let submittedContent = '<h2 class="modal__title">The letter was sent</h2>';
+
+      if (subjectOfLetter) {
+        submittedContent += `<p class="modal__text">Subject: ${subjectOfLetter}</p>`;
+      } else {
+        submittedContent += '<p class="modal__text">No subject</p>';
+      };
+      if (detailsOfLetter) {
+        submittedContent += `<p class="modal__text">Description: ${detailsOfLetter}</p>`;
+      } else {
+        submittedContent += '<p class="modal__text">No description</p>';
+      };
+
+      generateModalFromSubmit(submittedContent);
+      document.querySelector('.modal__close').addEventListener('click', () => contactForm.reset());
+      document.querySelector('.overlay').addEventListener('click', () => contactForm.reset());
+    };
+  });
+};
+
+const generateModalFromSubmit = (submittedContent) => {
+  renderModalWindow(submittedContent);
+};
+
+const renderModalWindow = (content) => {
+  let modal = new Modal('modal');
+  modal.buildModal(content);
+};
 
 // Handler for marking elements
 const markClickedElement = (elements, elem, classForMark) => {
@@ -97,7 +142,7 @@ const markClickedElement = (elements, elem, classForMark) => {
   };
   elements.forEach(el => el.classList.remove(classForMark));
   elem.classList.add(classForMark);
-}
+};
 
 
 // Header: Mark navigation links and scroll to target section
@@ -162,48 +207,62 @@ const shuffleSomeArray = (someArray) => { // https://stackoverflow.com/questions
     temporaryValue = someArray[currentIndex];
     someArray[currentIndex] = someArray[randomIndex];
     someArray[randomIndex] = temporaryValue;
-  }
+  };
 
   return someArray;
 };
 
-// Modal from form when submitted
-const contactForm = document.querySelector('#contactForm');
-const addFormSubmitHandler = () => {
-  contactForm.querySelector('[type=submit]').addEventListener('click', (event) => {
 
-    let emailOfLetter = contactForm.querySelector('[name=email]').value;
-    let nameOfLetter = contactForm.querySelector('[name=name]').value;
-    let subjectOfLetter = contactForm.querySelector('[name=subject]').value;
-    let detailsOfLetter = contactForm.querySelector('[name=details]').value;
+// Slider
+const addSliderHandler = () => {
+  let sliderItems = document.querySelectorAll('.slider .slider__item');
+  const arrowToLeft = document.querySelector('.slider__control--left');
+  const arrowToRight = document.querySelector('.slider__control--right');
+  let positionOfItem = 0;
+  let havePermit = true;
 
-    if (emailOfLetter && nameOfLetter) {
-      event.preventDefault();
-      let submittedContent = '<h2 class="modal__title">The letter was sent</h2>';
+  const changeCurrentItem = (counter) => {
+    positionOfItem = (counter + sliderItems.length) % sliderItems.length;
+  };
 
-      if (subjectOfLetter) {
-        submittedContent += `<p class="modal__text">Subject: ${subjectOfLetter}</p>`;
-      } else {
-        submittedContent += '<p class="modal__text">No subject</p>';
-      };
-      if (detailsOfLetter) {
-        submittedContent += `<p class="modal__text">Description: ${detailsOfLetter}</p>`;
-      } else {
-        submittedContent += '<p class="modal__text">No description</p>';
-      };
+  const hideItem = (direction) => {
+    havePermit = false;
+    sliderItems[positionOfItem].classList.add(direction);
+    sliderItems[positionOfItem].addEventListener('animationend', function () {
+      this.classList.remove('slider__item--active', direction);
+    });
+  };
 
-      generateModalFromSubmit(submittedContent);
-      document.querySelector('.modal__close').addEventListener('click', () => contactForm.reset());
-      document.querySelector('.overlay').addEventListener('click', () => contactForm.reset());
+  const showItem = (direction) => {
+    sliderItems[positionOfItem].classList.add('slider__item--next', direction);
+    sliderItems[positionOfItem].addEventListener('animationend', function () {
+      this.classList.remove('slider__item--next', direction);
+      this.classList.add('slider__item--active');
+      havePermit = true;
+    });
+  };
+
+  const nextItem = (counter) => {
+    hideItem('slider__control--to-left');
+    changeCurrentItem(counter + 1);
+    showItem('slider__control--from-right');
+  };
+
+  const previousItem = (counter) => {
+    hideItem('slider__control--to-right');
+    changeCurrentItem(counter - 1);
+    showItem('slider__control--from-left');
+  };
+
+  arrowToLeft.addEventListener('click', function () {
+    if (havePermit) {
+      previousItem(positionOfItem);
     };
   });
-};
 
-const generateModalFromSubmit = (submittedContent) => {
-  renderModalWindow(submittedContent);
-};
-
-const renderModalWindow = (content) => {
-  let modal = new Modal('modal');
-  modal.buildModal(content);
+  arrowToRight.addEventListener('click', function () {
+    if (havePermit) {
+      nextItem(positionOfItem);
+    };
+  });
 };

@@ -32,25 +32,40 @@
   <main id="main">
     <!-- Section: Slider -->
     <section class="slider">
-      <div class="wrapper">
-        <a class="arrow" href="#">
-          <img src="assets/img/chev-left.png" width="16" height="27" alt="chevron">
-        </a>
-        <div class="slider__images">
-          <figure class="slider__img">
-            <img class="iphone" width="215" height="458" src="assets/img/iphone-1.png" alt="iphone">
-            <img class="screen" width="194" height="339" src="assets/img/screen-1.png" alt="screen">
-            <img class="shadow" width="240" height="483" src="assets/img/shadow-1.png" alt="shadow">
-          </figure>
-          <figure class="slider__img rotated">
-            <img class="iphone" width="458" height="215" src="assets/img/iphone-2.png" alt="iphone">
-            <img class="screen" width="339" height="194" src="assets/img/screen-2.png" alt="screen">
-            <img class="shadow" width="483" height="240" src="assets/img/shadow-2.png" alt="shadow">
-          </figure>
+      <div class="slider__wrapper">
+        <div class="slider__item slider__item--active">
+          <div class="slider__images">
+            <figure class="slider__img">
+              <img class="iphone" width="215" height="458" src="./assets/img/iphone-1.svg" alt="iphone">
+              <div class="screen" alt="screen"></div>
+              <img class="shadow" width="240" height="483" src="./assets/img/shadow-1.png" alt="shadow">
+            </figure>
+            <figure class="slider__img slider__img--rotated">
+              <img class="iphone iphone--rotated" width="458" height="215" src="./assets/img/iphone-2.svg" alt="iphone">
+              <div class="screen screen--rotated" alt="screen"></div>
+              <img class="shadow" width="483" height="240" src="./assets/img/shadow-2.png" alt="shadow">
+            </figure>
+          </div>
         </div>
-        <a class="arrow arrow--right" href="#">
-          <img src="assets/img/chev-left.png" width="16" height="27" alt="chevron">
-        </a>
+        <div class="slider__item slider__item--single">
+          <div class="slider__images slider__images--single">
+            <figure class="slider__img slider__img--single">
+              <img class="iphone iphone--big" width="229.5" height="486.5" src="./assets/img/iphone-1.svg" alt="iphone">
+              <div class="screen screen--big" alt="screen"></div>
+              <img class="shadow" width="240" height="483" src="./assets/img/shadow-1.png" alt="shadow">
+              <img class="iphone iphone--decor" width="157" height="314" src="./assets/img/iphone-3.png" alt="iphone">
+              <img class="iphone iphone--decor iphone--decor-right" width="157" height="314" src="./assets/img/iphone-3.png" alt="iphone">
+            </figure>
+          </div>
+        </div>
+        <div class="wrapper wrapper_controls">
+          <span class="slider__control slider__control--left">
+            <svg><use xlink:href="assets/img/sprite.svg#icon-arrow"></use></svg>
+          </span>
+          <span class="slider__control slider__control--right">
+            <svg><use xlink:href="assets/img/sprite.svg#icon-arrow"></use></svg>
+          </span>
+        </div>
       </div>
     </section><!-- end Section: Slider -->
 
