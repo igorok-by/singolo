@@ -91,6 +91,9 @@ window.onload = () => {
 
   // Slider activation
   addSliderHandler();
+
+  // Toggle phone's screen after click
+  togglePhoneScreen();
 };
 
 
@@ -212,8 +215,7 @@ const shuffleSomeArray = (someArray) => { // https://stackoverflow.com/questions
   return someArray;
 };
 
-
-// Slider
+// Handler for Slider
 const addSliderHandler = () => {
   let sliderItems = document.querySelectorAll('.slider .slider__item');
   const arrowToLeft = document.querySelector('.slider__control--left');
@@ -264,5 +266,26 @@ const addSliderHandler = () => {
     if (havePermit) {
       nextItem(positionOfItem);
     };
+  });
+};
+
+// Toggle phone's screen after click
+const togglePhoneScreen = () => {
+  const sliderFigures = document.querySelectorAll('.slider .slider__img');
+
+  const toggleImgOnScreen = (event) => {
+    if (event.target.classList.contains('iphone')
+        || event.target.classList.contains('screen')
+        && !event.target.classList.contains('iphone--decor')) {
+
+      event.target.closest('.slider__img')
+        .querySelector('.screen')
+        .classList
+        .toggle('screen--empty');
+    };
+  };
+
+  sliderFigures.forEach(figure => {
+    figure.addEventListener('click', toggleImgOnScreen);
   });
 };

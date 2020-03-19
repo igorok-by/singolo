@@ -465,7 +465,7 @@ main {
   max-height: 333px;
   border-radius: 2px;
   background: center / cover no-repeat url(./assets/img/screen-1.png);
-  transition: ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .screen--rotated {
