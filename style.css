@@ -198,16 +198,9 @@ main {
   border-radius: 50%;
 }
 
-.link--active {
+.link--active,
+.link:hover {
   color: #f06c64;
-}
-
-.link:hover,
-.link:focus {
-  color: #f06c64;
-}
-
-.splitter {
 }
 
 

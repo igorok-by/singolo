@@ -77,8 +77,8 @@ class Modal {
 
 window.onload = () => {
 
-  // Mark link when clicked
-  markNavLink();
+  // Mark link when clicked and scroll to target section
+  handleClickOnHeaderLinks();
 
   // Mark image when clicked
   markImgInGrid();
@@ -96,6 +96,44 @@ window.onload = () => {
   togglePhoneScreen();
 };
 
+
+// Change active navigation link in header on scrolling window
+const changeActiveNavLinkOnScroll = () => {
+  const currentYPositionOfWindow = window.scrollY;
+  const allTargetBlocks = document.querySelectorAll('#main > section');
+  const navLinks = document.querySelectorAll('#navMenu > a');
+
+  allTargetBlocks.forEach(targetBlock => {
+    if ( (targetBlock.offsetTop - header.offsetHeight - 1) <= currentYPositionOfWindow && (targetBlock.offsetTop + targetBlock.offsetHeight - header.offsetHeight - 1) > currentYPositionOfWindow ) {
+
+      navLinks.forEach(navLink => {
+        navLink.classList.remove('link--active');
+        if (targetBlock.getAttribute('id') === navLink.getAttribute('href').substring(1)) {
+          navLink.classList.add('link--active');
+        };
+      });
+    };
+  });
+};
+
+// Scroll window to targeted section
+const scrollWindowToTargetSection = (link) => {
+  window.scrollTo(0, document.querySelector(`${link.getAttribute('href')}`).offsetTop - header.offsetHeight);
+};
+
+// Mark navigation links and scroll to target section when link clicked
+const handleClickOnHeaderLinks = () => {
+  const header = document.querySelector('#header');
+  const headerNavMenu = header.querySelector('nav.header__right');
+
+  headerNavMenu.addEventListener('click', (event) => {
+    let clickedNavLink = event.target.closest('a');
+    event.preventDefault();
+    scrollWindowToTargetSection(clickedNavLink);
+  });
+
+  document.addEventListener('scroll', changeActiveNavLinkOnScroll);
+};
 
 // Modal from form when submitted
 const contactForm = document.querySelector('#contactForm');
@@ -145,24 +183,6 @@ const markClickedElement = (elements, elem, classForMark) => {
   };
   elements.forEach(el => el.classList.remove(classForMark));
   elem.classList.add(classForMark);
-};
-
-
-// Header: Mark navigation links and scroll to target section
-const header = document.querySelector('#header');
-const headerNavMenu = header.querySelector('nav.header__right');
-const scrollWindowToTargetSection = (link) => {
-  window.scrollTo(0, document.querySelector(`${link.getAttribute('href')}`).offsetTop - header.offsetHeight);
-};
-const markNavLink = () => {
-  headerNavMenu.addEventListener('click', (event) => {
-    let navLinks = headerNavMenu.querySelectorAll('.link');
-    let clickedNavLink = event.target.closest('a');
-    event.preventDefault();
-
-    scrollWindowToTargetSection(clickedNavLink);
-    markClickedElement(navLinks, clickedNavLink, 'link--active');
-  });
 };
 
 // Portfolio: Mark image in grid when clicked
