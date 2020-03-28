@@ -22,8 +22,6 @@ class Modal {
     this.modalCloseBtn.setAttribute('type', 'button');
     this.modalCloseBtn.innerText = 'OK';
 
-    // this.modalCloseBtn.innerHTML = 'hello';
-
     this.setContent(content);
 
     this.appendModalElements();
