@@ -24,7 +24,7 @@ class Modal {
 
     this.setContent(content);
 
-    this.appendModalElements();
+    this.appendModalElements(this.modalCloseBtn);
 
     // Bind Events
     this.bindEvents();
@@ -48,15 +48,16 @@ class Modal {
     };
   };
 
-  appendModalElements() {
+  appendModalElements(closeButton) {
     this.modal.append(this.modalContent);
-    this.modal.append(this.modalCloseBtn);
+    if (closeButton) {
+      this.modal.append(closeButton);
+    };
     this.overlay.append(this.modal);
   };
 
   bindEvents() {
     this.overlay.addEventListener('click', this.closeModal);
-    this.modalCloseBtn.addEventListener('click', this.closeModal);
   };
 
   openModal() {
@@ -70,6 +71,83 @@ class Modal {
       document.querySelector('.overlay').remove();
     };
   };
+};
+
+class MenuModal extends Modal {
+  constructor(classes) {
+    super(classes);
+
+    this.modal = '';
+    this.modalContent = '';
+    this.modalCloseBtn = '';
+    this.logo = '';
+    this.overlay = '';
+  };
+
+  mountModal() {
+    //Overlay
+    this.overlay = super.createDomNode(this.overlay, 'div', 'overlay', 'overlay_modal');
+
+    //Modal
+    this.modal = super.createDomNode(this.modal, 'div', 'modal', this.classes);
+
+    //Modal content
+    this.modalContent = this.cloneDomNode(this.modalContent, document.querySelector('.header__right'), 'menu__list');
+
+    //Close Button
+    this.modalCloseBtn = document.querySelector('.btn-menu');
+    this.modalCloseBtn.classList.add('btn-menu--rotated');
+
+    // Logo
+    this.logo = this.cloneDomNode(this.logo, document.querySelector('a.logo'), 'logo--menu');
+
+    this.modal.append(this.logo);
+
+    super.appendModalElements();
+
+    // Bind Events
+    this.bindEvents();
+
+    // Open Modal
+    this.openModal();
+  };
+
+  cloneDomNode(node, clonedElement, ...classes) {
+    node = clonedElement.cloneNode(true);
+    node.classList.add(...classes);
+    return node;
+  };
+
+  bindEvents() {
+    this.overlay.addEventListener('click', this.closeModal);
+    this.modalCloseBtn.addEventListener('click', this.closeModal);
+  };
+
+  openModal() {
+    document.querySelector('.btn-menu').removeEventListener('click', handleGenerateMenuTab);
+    document.body.append(this.overlay);
+  };
+
+  closeModal(event) {
+    let classes = event.target.classList;
+
+    if (classes.contains('overlay') || classes.contains('btn-menu--rotated') || classes.contains('link')) {
+      document.querySelector('.overlay').remove();
+      document.querySelector('.btn-menu').classList.remove('btn-menu--rotated');
+      document.querySelector('.btn-menu').addEventListener('click', handleGenerateMenuTab);
+    };
+  };
+};
+
+const generateMenuTab = () => {
+  let modal = new MenuModal('menu');
+  modal.mountModal();
+};
+
+const handleGenerateMenuTab = () => generateMenuTab();
+
+const openMenuTab = () => {
+  document.querySelector('.btn-menu').addEventListener('click', handleGenerateMenuTab);
 };
 
 
@@ -92,6 +170,9 @@ window.onload = () => {
 
   // Toggle phone's screen after click
   togglePhoneScreen();
+
+  // Open modal with Menu when width < 768px
+  openMenuTab();
 };
 
 
@@ -99,10 +180,10 @@ window.onload = () => {
 const changeActiveNavLinkOnScroll = () => {
   const currentYPositionOfWindow = window.scrollY;
   const allTargetBlocks = document.querySelectorAll('#main > section');
-  const navLinks = document.querySelectorAll('#navMenu > a');
+  const navLinks = document.querySelectorAll('.header__right > a');
 
   allTargetBlocks.forEach(targetBlock => {
-    if ( (targetBlock.offsetTop - header.offsetHeight - 1) <= currentYPositionOfWindow && (targetBlock.offsetTop + targetBlock.offsetHeight - header.offsetHeight - 1) > currentYPositionOfWindow ) {
+    if ((targetBlock.offsetTop - header.offsetHeight - 1) <= currentYPositionOfWindow && (targetBlock.offsetTop + targetBlock.offsetHeight - header.offsetHeight - 1) > currentYPositionOfWindow) {
 
       navLinks.forEach(navLink => {
         navLink.classList.remove('link--active');
@@ -166,12 +247,8 @@ const addFormSubmitHandler = () => {
 };
 
 const generateModalFromSubmit = (submittedContent) => {
-  renderModalWindow(submittedContent);
-};
-
-const renderModalWindow = (content) => {
   let modal = new Modal('modal');
-  modal.buildModal(content);
+  modal.buildModal(submittedContent);
 };
 
 // Handler for marking elements
@@ -292,9 +369,9 @@ const togglePhoneScreen = () => {
   const sliderFigures = document.querySelectorAll('.slider .slider__img');
 
   const toggleImgOnScreen = (event) => {
-    if (event.target.classList.contains('iphone')
-        || event.target.classList.contains('screen')
-        && !event.target.classList.contains('iphone--decor')) {
+    if (event.target.classList.contains('iphone') ||
+      event.target.classList.contains('screen') &&
+      !event.target.classList.contains('iphone--decor')) {
 
       event.target.closest('.slider__img')
         .querySelector('.screen')
